@@ -1107,7 +1107,55 @@ To determine a solution of \eqref{eq:dividedHomogeneous} we need to know
         Solve $2x^2y'' - xy' + (1+x)y = 0$.
     \end{exmp}
     \begin{sol}
-        WILL COME BACK TO
+        $a(x)=2x^2$ hence $x=0$ is a singular point.
+        \[\lim_{x\to0} x\frac{b(x)}{a(x)} = \lim_{x\to0} \frac{x(-x)}{2x^2} = \frac{-1}{2} \ \text{ and } \ \lim_{x\to0} x^2 \frac{c(x)}{a(x)} = \lim_{x\to0} x^2 \frac{(1+x)}{2x^2} = \frac{1}{2}.\]
+        Thus $x=0$ is a regular singular point.
+        We look for a Frobenius series solution $y=\sum_{n=0}^{\infty} a_nx^{n+r} $, where $a_0 \neq 0$.
+
+        We have
+        \[
+            y' = \sum_{n=0}^{\infty} a_n(n+r)x^{n+r-1} \quad \text{ and } \quad y''=\sum_{n=0}^{\infty} a_n(n+r)(n+r-1)x^{n+r-2}.
+        \]
+        Substituting these into the ODE gives:
+        \[
+            \sum_{n=0}{\infty} \left[ 2x^2a_n(n+r)(n+r-1)x^{n+r-2} -xa_n(n+r)x^{n+r-1} + (1+x)a_nx^{n+r} \right] = 0.  
+        \]
+        To find an equaiont defining $r$ we consider the coefficient of the lowest power of $x$ ($x^r$) which gives:
+        \[a_02r(r-1)-a_0r+a_0 = 0, \qquad \text{where } a_0\neq0\].
+        \[\implies (2r-1)(r-1) = 0 \qquad \colorboxed{orange}{\text{Indicial Equation}}\]
+        So $r=\frac{1}{2}$ or $r=1$.
+        The indicial equation is responsible for capturing the correct behaviour of the singularity.
+        The coefficient of a general power of $x$ ($x^{N+r}$) is:
+        \[
+            a_N2(N+r)(N+r-1)-a_N(N+r)+a_N+a_{N-1} = 0
+        \]
+        giving
+        \[
+            a_N = \frac{-a_{N-1}}{(N+r-1)(2(N+r)-1)} \quad \colorboxed{orange}{\text{Recurrence Relation.}}
+        \]
+        This allows us to determine each of the coefficients in the power series expansion for a given value of $r$.
+
+        \textbf{Case 1}($r=1$). Recurrence relation: $a_n = \frac{-a_{n-1}}{n(2n+1)}.$
+
+        The corresponding power series solution which is valid for $x>0$ is:
+        \[y_1(x) = x\left[ \sum_{n=0}^{\infty} \frac{(-1)^n\ x^n\ 2^n \ n!}{(2n+1)! \ n!} \right]\]
+
+        Note: we arbitrarily took $a_0=1$. Recall that the general solution is $y=c_1y_1 + c_2y_2$ where $c_1,c_2$ account for the arbitrary value of $a_0$.
+
+        \textbf{Case 2}($r=\frac{1}{2}$). Recurrence relation: $a_n=\frac{-a_{n-1}}{(2n-1)n}$.
+
+        The corresponding power series solution which is valid for $x>0$ is:
+        \[ y_2 = x^{\frac{1}{2}} \left[ \sum_{n=0}^{\infty} \frac{(-1)^n \ 2^n \ x^n}{(2n)!} \right] \]
+
+        To determine the exact range of validity of the series we perform the ratio test.
+        
+        \textbf{Series $y_1$}:
+        \[\lim_{n\to \infty} \left \vert \frac{x}{(n+1)(2n+3)} \right \vert = 0\]
+        hence $y_1$ is valid for all $x>0$, as the series converges absolutely.
+
+        \textbf{Series $y_2$}:
+        \[\lim_{n\to \infty} \left \vert \frac{-x2x}{(2n)(2n+1)(n+1)} \right \vert = \lim_{n\to \infty} \left \vert \frac{x}{(2n+1)(n+1)} \right \vert = 0 \]
+        hence $y_2$ converges absolutely for $x>0$.
     \end{sol}
 \end{tcolorbox}
 
@@ -1133,8 +1181,81 @@ We illustrate how this second solution is found via the following example.
         \]
     \end{exmp}
     \begin{sol}
-        WILL COME BACK TO
+        $x=0$ is a singular point and
+        \[
+          \lim_{x\to0} x\frac{b(x)}{a(x)} = \lim_{x\to0}\frac{xx}{x^2}=1, \text{ and } \lim_{x\to0} \frac{x^2 c(x)}{a(x)} = \lim_{x\to0} \frac{x^2x^2}{x^2} = 0.  
+        \]
+        As both limits are finite $x=0$ is a regular singular point. Looking for series solutions of the form $y = \sum_{n=0}^{\infty} a_n x^{n+r}, \ a_0 \neq 0$ gives
+        \begin{equation}\label{eq:SeriesFrobeniusSum}
+            \sum_{n=0}^{\infty} \left[ a_n(n+r)(n+r-1)x^{n+r} + a_n(n+r)x^{n+r} + a_nx^{n+r+2} \right] = 0.
+        \end{equation}
+        Coefficients of $x^r$ are:
+        \[ r(r-1)+r = r^2 = 0 \quad \colorboxed{orange}{\text{Indicial Equation}}\]
+        Hence $r=0$ is a repeated root. The coefficients of $x^{r+1}$ are:
+        \[a_1(r+1)r + (r+1)a_1 = a_1(r+1)^2 = 0,\]
+        since $r=0$ we must have $a_1=0$.
+        The coefficients of a general term $x^{N+r}$ are:
+        \[ a_N(N+r)(N+r-1) + a_N(N+r) + a_{N-2} = 0, \quad N\geq 2.\]
+        Hence the \colorboxed{orange}{\text{recurrence relation}} is
+        \[ a_N = \frac{-a_{N-2}}{(r+N)^2}, \quad N\geq2 \]
+
+        \textbf{First solution $y_1$:} Setting $r=0$ in the recurrence relation gives $a_N = \frac{-a_{N-2}}{N^2}.$ Since $a_1=0$ it follows that $a_3,a_5,a_7,\ldots$ are all zero. The only $a_N$ which are non-zero correspond to even $N$. Let $N=2m$, $m\in \mathbb{N}$ and reformulate the reccurence relation:
+        \[ a_{2m} = \frac{-a_{2(m-1)}}{(2m)^2}. \]
+        So
+        \[ a_2 = \frac{-a_0}{(2\cdot1)^2}, \quad a_4 = \frac{-a_2}{(2\cdot2)^2}= \frac{+a_0}{2^2 2^2 (1\cdot2)^2}, \quad a_6 = \frac{-a_4}{(2\cdot3)^2} = \frac{-a_0}{2^2 2^2 2^2 (1\cdot2\cdot3)^2}, \cdots  \]
+        and
+        \[ a_{2m} = \frac{(-1)^m\ a_0}{2^{2m}\ (m!)^2} \]
+        Hence
+        \[ y_1(x) = \sum_{m=0}^{\infty} \frac{(-1)^m\ x^{2m}}{2^{2m}\ (m!)^2}\].
+
+        This is the Bessel function of the first kind of order zero and is denoted $J_0(x)$.
+
+        \textbf{Ex.} Check the series converges absolutely.
     \end{sol}
+\end{tcolorbox}
+    
+\begin{tcolorbox}
+        \textbf{Second solutions $y_2$:} As we are dealing with power series it would be difficult to use the Wronskian to find the second linearly independent solution. We use and alternative approach.
+
+        Rewriting equation \eqref{eq:SeriesFrobeniusSum}, $L[y]$ gives 
+        \[
+            L[y] = a_0r^2x^r+
+            \underbrace{a_1(r+1)^2x^{r+1}}_{a_1=0}
+             + \sum_{n=2}^{\infty}
+                 \underbrace{\Big[ a_n(n+r)^2 + a_{n-2}\Big]}_{=0 \text{ by the reccurence relation}} 
+                 x^{n+r}
+        \]
+        Hence $L[y] = a_0r^2x^r $.
+        Differentiating with respect to $r$ gives
+        \[
+            L\left[\frac{\partial y}{\partial r}\right] = 2a_0rx^r + a_0r^2x^r\ln x
+        \]
+        Observer $L\left[ \frac{\partial y}{\partial r} \Big \vert_{r=0} \right] = 0$ so $\frac{\partial y}{\partial r} \Big \vert_{r=0}$ is a solution to the ODE $L[y]=0$. This is the second solution we were looking for.
+        \[ y_2(x) = \frac{\partial y}{\partial r} \Big \vert_{r=0} = \frac{\partial }{\partial r} \left[ \sum_{n=0}^{\infty} a_n(r)x^{n+r} \right] \Bigg \vert_{r=0} \]
+
+        Using the product rule
+        \[ \frac{\partial y}{\partial r} \Big \vert_{r=0} = \frac{\partial }{\partial r} \left[ x^r \ln x \left( \sum_{n=0}^{\infty} a_n(r)x^n \right)+ x^r \sum_{n=1}^{\infty} \frac{\partial a_n(r)}{\partial r}x^{n} \right] \Bigg \vert_{r=0} \]
+        Hence
+        \[
+            y_2(x) = \ln x y_1(x) + \left[ \sum_{n=1}^{\infty} \frac{\partial a_n(r)}{\partial r}\Big \vert_{r=0} x^{n} \right].
+        \]
+        
+        We now need to find $ \frac{\partial a_n(r)}{\partial r}\Big \vert_{r=0}$ using the recurrence relation
+        \[
+            a_N = \frac{-a_{N-2}}{(r+N)^2}.
+        \]
+        Hence,
+        \[ a_2=\frac{-a_0}{(r+2)^2} \implies \frac{\partial a_2}{\partial r} = \frac{2a_0}{(r+2)^3} \text{ and } \frac{\partial a_2}{\partial r} \Big \vert_{r=0} = \frac{a_0}{4}.
+        \]
+        \[
+            a_4 = \frac{-a_2}{(r+4)^2} = \frac{a_0}{\big[ (r+4)(r+2)\big]^2} \implies \frac{\partial a_4}{\partial r} = \frac{-2a_0(2r+6)}{\big[(r+4)(r+2)\big]^3} \text{ and } \frac{\partial a_4}{\partial r} \Big \vert_{r=0} = \frac{-3a_0}{128}.
+        \]
+        Hence the first few terms of $y_2$ are:
+        \[ y_2(x) = \ln(x)y_1(x) + \left[ \frac{1}{4}x^2 - \frac{3}{128}x^4 + \cdots \right], \quad x>0 \]
+
+        Note $y_1(x)\to1$ as $x\to 0$ so $y_2(x)$ has logarithmic singularity at $x=0$. The gernal solution is $y=c_1y_1 + c_2y_2, \ c_1,c_2 \in \mathbb{R}$.
+        
+
 \end{tcolorbox}
 
 \section{Inhomogeneous Equations}
