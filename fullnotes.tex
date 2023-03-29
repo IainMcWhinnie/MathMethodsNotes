@@ -107,7 +107,7 @@ f(t,y,y') = a(t)y + b(t)y' + c(t).
     $$ y'' + 5y' + 6y = 0.$$
     \item A second order linear inhomogeneous constant coefficient equation is
     $$ y'' - 3y' + y = \cos(3t).$$
-    \item A second order linear inhomogenouse variable coefficient equation is
+    \item A second order linear inhomogeneous variable coefficient equation is
     $$ y'' - 2ty' - \ln(t)y = e^{3t}.$$
     \item Newton's second law of motion for a point particle of mass $m$, moving in one space dimensions under a force $f$ is given by
     $$ my'' = f(t)$$
@@ -1260,9 +1260,164 @@ We illustrate how this second solution is found via the following example.
 
 \section{Inhomogeneous Equations}
 
+\begin{thm}
+Every solution $y$ of the inhomogeneous equation
+\[ L[y] = f \]
+with $L[y] = y'' + py' + qy$, where $p,q$ and $f$ are continuous ffunctions, is given by
+\[ y = c_1y_1 + c_2y_2 + y_p \]
+where the function $y_1$ and $y_2$ are fundamental solutions of the homogeneous equation $L[y]=0$ and $y_p$ is any solution of the inhomogeneous equation $L[y] = f$. 
+\end{thm}
+
+\begin{proof}
+    Let $y$ be any solution of $L[y]=f$. We already have $y_p$ such that $L[y_p] = f$, so $L[y]-L[y_p] = f-f = 0$ hence $L[y-y_p] = 0$ by linearity of $L$.
+
+    Hence $y-y_p$ is a solution of the homogenenous equation, but all solution to the homogenenous equation can be written as a linear combination of a pair of fundamental solutions $y_1,y_2$. So there exists $c_1,c_2 \in \mathbb{R}$ such that $y-y_p=c_1y_1 + c_2y_2$.
+
+    Since for every $y$, a solution of $L[y]=f$ we can find a $c_1,c_2$ we have $y=c_1y_1 + c_2y_2 + y_p$ for every solution.
+\end{proof}
+
 \subsection{Exact Second Order Equations}
 
+The general second order ODE
+\begin{equation}\label{eq:generalLinear}
+    a(x)y'' + b(x)y' + c(x)y = f(x)
+\end{equation}
+can be writen as
+\begin{equation}\label{eq:exactRewrite}
+    \big( a(x)y'' - a'(x)y\big)' + \big(b(x)y\big)' + \big(a''(x) - b'(x) + c(x)\big)y = f(x)
+\end{equation}
+We check by exapanding (3.2):
+\[ a'y'+ay'' - a''y + by' + b'y + a''y - b'y + cy = f  \implies ay'' + by' + cy = f \text{ as required.}\]
+
+The differential equation is exact is
+\begin{equation}\label{eq:exactSuffCrit}
+    a''-b'+c = 0
+\end{equation}
+When \eqref{eq:exactRewrite} is exact we can integrate to obtain
+\[ a(x)y' - a'(x)y + b(x) y = \int f(x) dx + c_1 \]
+where $c_1 \in \mathbb{R}$. This is a first order ODE that we can solve using integrating factors.
+
+\begin{tcolorbox}
+    \begin{exmp}
+        Find the general solution to
+        \[
+            \frac{1}{x}y'' + \left( \frac{1}{x} - \frac{2}{x^2}\right)y' - \left(\frac{1}{x^2} - \frac{2}{x^3}\right)y = e^x.
+        \]
+    \end{exmp}
+    \begin{sol}
+        \[a(x) = \frac{1}{x}, \quad b(x) = \frac{1}{x} - \frac{2}{x^2},\quad c(x) = \frac{-1}{x^2} + \frac{2}{x^3},\quad f(x)=e^x \]
+        So \eqref{eq:exactSuffCrit} gives: $2x^{-3} + x^{-2} - 4x^{-3} - x^{-2} + 2x^{-3} = 0$ and hence the ODE is exact. Writing the ODE in the form of \eqref{eq:exactRewrite} gives:
+        \[ \left(x^{-1}y' + x^{-2}y\right)' + \left(\left(x^{-1}-2x^{-2}\right)y\right)' = e^x. \]
+        Integrating with respect to $x$ gives:
+        \[ x^{-1}y' + x^{-2}y + (x^{-1}-2x^{-2})y = e^x + c_1, \quad c_1 \in \mathbb{R} \]
+        Hence,
+        \[ y' + (1-x^{-1})y = xe^x + c_1x. \]
+        Solving the ODE using the integrating factor $\mu(x) = \exp\left( \int 1-\frac{1}{x} dx \right) $ gives the general solution
+        \[ y(x) = \frac{1}{2}xe^x + c_1x + c_2xe^{-x}, \]
+        $c_1,c_2$ are arbitrary constants.
+    \end{sol}
+\end{tcolorbox}
+
 \subsection{The Adjoint Equation and Integrating Factors}
+
+If the differential equation \eqref{eq:generalLinear} can be multiplied by a function $z(x)$ so that the resulting ODE is exact then $z(x)$ is called an integrating factor for equation \eqref{eq:generalLinear}.
+
+$z(x)$ times equation \eqref{eq:generalLinear} gives:
+\begin{equation} 
+    zay'' + zby' + zcy = zf.
+\end{equation}
+This equation is exact if the LHS can be written as
+\begin{equation} \label{eq:zMultCrit}
+    zay'' + zby'' + zay = \frac{d}{dx}\left(U(x)y' + V(x)y\right)
+\end{equation}
+If such a $z(x)$ exists then equation \eqref{eq:zMultCrit} becomes
+\begin{equation}\label{eq:exactSol}
+    \frac{d}{dx}\left( U(x)y' + V(x)y\right) = z(x)f(x)
+\end{equation}
+which can be integrated to obtain
+\[
+    U(x)y' + V(x)y = \int z(x)f(x) dx
+\]
+This is a first order linear ODE in $y$ which we can sovle. So it remains to find $z(x),U(x)$ and $V(x)$. From equation \eqref{eq:zMultCrit} we have
+\begin{align*}
+    zay'' + zby' + zcy &= \frac{d}{dx}\left( U(x)y' + V(x)y \right) \\
+    &= Uy'' + (U'+V)y' + V'y \\
+\end{align*}
+Comparing coefficients of $y'', y'$ and $y$ we obtain
+\[
+\begin{matrix}
+    za = U & \quad \text{(i)} \\
+    zb = U'+V & \quad \text{(ii)} \\
+    zc = V' & \quad \text{(iii)} \\
+\end{matrix}    
+\]
+The derivative of (ii) gives
+\[U'' + v@ = (zb)' \quad \text{(iv)}\]
+From equations (i) and (iii), we have
+\[ U''+V' = (za)'' + zc \quad \text{(v)} \]
+Hence
+\begin{equation}
+    \bar{L}[z] = \frac{d^2}{dx^2}(za) - \frac{d}{dx} (zb) + zc
+\end{equation}
+is the \colorboxed{orange}{\text{adjoint}} of $L[y] = ay''+by' + cy$.
+
+The adjoint equation is easier to solve. Once $z(x)$ is found we have expressions for $U$ and $V$ and we can solve the exact differential equation \eqref{eq:exactSol}.
+
+\begin{tcolorbox}
+    \begin{exmp}
+        Find the general solution of
+        \[ L[y]= y'' + 4y = x^2 \]
+    \end{exmp}
+    \begin{sol}
+        We multiply the differential equation by $z(x)$ yielding
+        \[ zy'' + z4y = zx^2. \]
+        Reexpressing the LHS as
+        \begin{align*}
+            zy'' + z4y &= (Uy' + Vy)' \\
+            &= Uy'' + (U'+V)y' + V'y \\
+        \end{align*}
+        and equating coefficients of $y'',y',y$ gives:
+        \[ \begin{matrix}
+            z=U & \quad (i) \\
+            0 = U + V & \quad (ii) \\
+            4z = V' & \quad (iii) \\
+        \end{matrix}
+        \]
+        From (ii): 
+        \[U''+V'=0 \quad \text{(iv)} \]
+        From (i) and (iii):
+        \[ U''+V' = z'' + 4z \quad \text{(v)} \]
+        Then (v) minus (iv) gives:
+        \[ z'' + 4z = 0 \]
+        The adjoint of $L$ is therefore:
+        \[ \bar{L} = \frac{d^2}{dx^2} + 4. \]
+
+        Solving $\bar{L}[z] = 0$ to find $z(x)$ can be done by looking for solutions of the form $z(x) = e^{mx}$ which gives the auxiliary equation
+        \[ m^2 + 4 = 0. \]
+        Hence $m = \pm 2i$. Since we only need one solution for $z(x)$ and not the general solution it sufficies to take $z(x)=\sin(2x)$.
+
+        From here, $U=z=\sin(2x)$ and $V=-U'=-2\cos(2x)$. Hence the orginal ODE can be expressed as:
+        \[ \frac{d}{dx}\left( \sin(2x)\frac{dy}{dx} -2\cos(2x)y \right) = x^2\sin(2x). \]
+        Integrating gives:
+        \[ \sin(2x)\frac{dy}{dx} - 2\cos(2x)y = \int x^2 \sin (2x) dx.\]
+        So
+        \[ \frac{dy}{dx} - 2\cot(2x)y = \text{cosec}(2x) \int x^2 \sin(2x)dx.\]
+        
+        Solving this firsrt order ODE using the integrating factor $\mu(x) = \text{cosec}(2x)$ gives:
+        \[ \frac{d}{dx} \left[ \text{cosec}(2x)y \right] = \text{cosec}^2(2x) \int x^2 \sin(2x) dx \]
+        Then $y(x) = \sin(2x) \int \left( \text{cosec}^2(2x)\int x^2 \sin(2x) dx \right) dx$ which yields:
+
+        \[ y(x) = c_1 \sin(2x) + c_2 \cos(2x) - \frac{1}{8} + \frac{1}{4}x^2. \]
+    \end{sol}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{exmp}
+        Find the adjoint of 
+        \[ L[y] = (x^2 - x)y'' + (2x^2 + 4x - 3)y' + 8xy = 1 \]
+        and use this to find the general solution.
+    \end{exmp}
+\end{tcolorbox}
 
 \subsection{Self-adjoint Operators}
 
