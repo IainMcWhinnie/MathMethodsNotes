@@ -68,6 +68,7 @@
 
 \tableofcontents
 
+\pagebreak
 \section{Second Order Linear Differential Equations}
 
 \subsection{Introduction}
@@ -729,6 +730,9 @@ y_2 = y_1(t)\int \frac{W}{(y_1(t))^2} dt = y_1(t) \int^{t}\frac{1}{y_1^2(x)} \ex
             &= 2t(y_1y_2' - y_2y_1') \\
             &= 2tW
         \end{align*}
+    \end{sol}
+\end{tcolorbox}
+\begin{tcolorbox}
         Hence $W' = \frac{2t}{1-t^2}W$ i.e.
         \[
         \int \frac{W'}{W} dt = \int \frac{2t}{1-t^2} dt \quad
@@ -755,8 +759,10 @@ y_2 = y_1(t)\int \frac{W}{(y_1(t))^2} dt = y_1(t) \int^{t}\frac{1}{y_1^2(x)} \ex
             y_2(t) = -1 + \frac{t}{2}\ln \left( \frac{t+1}{t-1} \right)
         \]
         where we are setting $A=1, B=0$.
-    \end{sol}
+    
 \end{tcolorbox}
+
+\pagebreak
 
 \section{Power Series Solutions}
 
@@ -874,8 +880,12 @@ where $a(x),b(x),c(x)$ are polynomials. We look for power series solutions near 
         \]
         or simplifying:
         \[
-        y = a_0 \sum_{n=0}^{\infty} \frac{x^{2n}}{2^nn!} + a_1\sum_{n=0}^{\infty}\frac{2^nn!x^{2n+1}}{(2n+1)!}
+            y = a_0 \sum_{n=0}^{\infty} \frac{x^{2n}}{2^nn!} + a_1\sum_{n=0}^{\infty}\frac{2^nn!x^{2n+1}}{(2n+1)!}
         \]
+    \end{sol}
+    
+\end{tcolorbox}
+\begin{tcolorbox}
         We expect two linearly independent solutions to the ODE with two arbitrary coefficients $c_1, c_2$ to give the general solution $y=c_1y_1 + c_2y_2$. This is what we have above with $a_0=c_1$ and $a_1=c_2$ and the two solutions $y_1,y_2$ are given by the two power series.
 
         Suppose we are given initial conditions $y(0)=A$ and $y'(0)=B$, we can readily see that $a_0=A$ and $a_1=B$. So the unique solution to the IVP is then 
@@ -886,12 +896,12 @@ where $a(x),b(x),c(x)$ are polynomials. We look for power series solutions near 
         \[
         \lim_{n\to \infty} \left\vert \frac{\frac{x^{2(n+1)}}{2^{n+1}(n+1)!}}{\frac{x^{2n}}{2^nn!}} \right\vert = \lim_{n\to \infty} \left \vert \frac{1}{2(n+1)} \right \vert x^2 = 0.
         \]
+    
         So $L=0$ and the series converges for all $x$. For the second series
         \[
         \lim_{n\to \infty} \left\vert \frac{\frac{x^{2(n+1)+1} \ 2^{n+1}(n+1)!}{(2(n+1)+1)!}}{\frac{x^{2n+1}\ 2^nn!}{(2n+1)!}} \right\vert = \lim_{n\to \infty} \left \vert \frac{1}{2n+3} \right \vert x^2 = 0.
         \]
         So $L=0$ and the series converges for all $x$.
-    \end{sol}
 \end{tcolorbox}
 
 \begin{tcolorbox}
@@ -1061,6 +1071,9 @@ r_{\pm} = \frac{1}{2} \left[-(p_0-1) \pm \sqrt{(p_0-1)^2 - 4q_0} \right]
         \[
         y_2' + 2x^{-1}y_2 = Ax^{-1}.
         \]
+    \end{sol}
+    
+        
         Using the integrating factor $\mu(x) = \exp\left(\int2x^{-1} dx \right) = x^2$ we find
         \[
         y_2(x) = \frac{1}{x^2}\int \frac{A}{x} dx = \frac{A}{x^2}\ln x + Bx^{-2}
@@ -1070,7 +1083,6 @@ r_{\pm} = \frac{1}{2} \left[-(p_0-1) \pm \sqrt{(p_0-1)^2 - 4q_0} \right]
         y(x) = c_1y_1 + c_2y_2 = c_1x^{-2} + c_2x^{-2}\ln x.
         \]
         Notice the solution is singular at $x=0$ as expected.
-    \end{sol}
 \end{tcolorbox}
 
 \subsubsection{Method of Frobenius}
@@ -1142,6 +1154,10 @@ To determine a solution of \eqref{eq:dividedHomogeneous} we need to know
 
         Note: we arbitrarily took $a_0=1$. Recall that the general solution is $y=c_1y_1 + c_2y_2$ where $c_1,c_2$ account for the arbitrary value of $a_0$.
 
+    \end{sol}
+\end{tcolorbox}
+\begin{tcolorbox}
+
         \textbf{Case 2}($r=\frac{1}{2}$). Recurrence relation: $a_n=\frac{-a_{n-1}}{(2n-1)n}$.
 
         The corresponding power series solution which is valid for $x>0$ is:
@@ -1156,7 +1172,6 @@ To determine a solution of \eqref{eq:dividedHomogeneous} we need to know
         \textbf{Series $y_2$}:
         \[\lim_{n\to \infty} \left \vert \frac{-x2x}{(2n)(2n+1)(n+1)} \right \vert = \lim_{n\to \infty} \left \vert \frac{x}{(2n+1)(n+1)} \right \vert = 0 \]
         hence $y_2$ converges absolutely for $x>0$.
-    \end{sol}
 \end{tcolorbox}
 
 In the above example the indicial equation had real distinct roots. If the roots are complex then we would proceed in the same way, but we would find complex-valued functions of $x$ for $y_1$ and $y_2$, however as with Euler's equation we can obtain real-values solutions by taking real and imaginary parts of the complex solutions.
@@ -1191,6 +1206,9 @@ We illustrate how this second solution is found via the following example.
         \end{equation}
         Coefficients of $x^r$ are:
         \[ r(r-1)+r = r^2 = 0 \quad \colorboxed{orange}{\text{Indicial Equation}}\]
+    \end{sol}
+\end{tcolorbox}
+\begin{tcolorbox}
         Hence $r=0$ is a repeated root. The coefficients of $x^{r+1}$ are:
         \[a_1(r+1)r + (r+1)a_1 = a_1(r+1)^2 = 0,\]
         since $r=0$ we must have $a_1=0$.
@@ -1198,6 +1216,8 @@ We illustrate how this second solution is found via the following example.
         \[ a_N(N+r)(N+r-1) + a_N(N+r) + a_{N-2} = 0, \quad N\geq 2.\]
         Hence the \colorboxed{orange}{\text{recurrence relation}} is
         \[ a_N = \frac{-a_{N-2}}{(r+N)^2}, \quad N\geq2 \]
+        
+    
 
         \textbf{First solution $y_1$:} Setting $r=0$ in the recurrence relation gives $a_N = \frac{-a_{N-2}}{N^2}.$ Since $a_1=0$ it follows that $a_3,a_5,a_7,\ldots$ are all zero. The only $a_N$ which are non-zero correspond to even $N$. Let $N=2m$, $m\in \mathbb{N}$ and reformulate the reccurence relation:
         \[ a_{2m} = \frac{-a_{2(m-1)}}{(2m)^2}. \]
@@ -1211,10 +1231,7 @@ We illustrate how this second solution is found via the following example.
         This is the Bessel function of the first kind of order zero and is denoted $J_0(x)$.
 
         \textbf{Ex.} Check the series converges absolutely.
-    \end{sol}
-\end{tcolorbox}
-    
-\begin{tcolorbox}
+
         \textbf{Second solutions $y_2$:} As we are dealing with power series it would be difficult to use the Wronskian to find the second linearly independent solution. We use and alternative approach.
 
         Rewriting equation \eqref{eq:SeriesFrobeniusSum}, $L[y]$ gives 
@@ -1240,6 +1257,8 @@ We illustrate how this second solution is found via the following example.
             y_2(x) = \ln x y_1(x) + \left[ \sum_{n=1}^{\infty} \frac{\partial a_n(r)}{\partial r}\Big \vert_{r=0} x^{n} \right].
         \]
         
+    \end{tcolorbox}
+    \begin{tcolorbox}
         We now need to find $ \frac{\partial a_n(r)}{\partial r}\Big \vert_{r=0}$ using the recurrence relation
         \[
             a_N = \frac{-a_{N-2}}{(r+N)^2}.
@@ -1250,6 +1269,8 @@ We illustrate how this second solution is found via the following example.
         \[
             a_4 = \frac{-a_2}{(r+4)^2} = \frac{a_0}{\big[ (r+4)(r+2)\big]^2} \implies \frac{\partial a_4}{\partial r} = \frac{-2a_0(2r+6)}{\big[(r+4)(r+2)\big]^3} \text{ and } \frac{\partial a_4}{\partial r} \Big \vert_{r=0} = \frac{-3a_0}{128}.
         \]
+
+    
         Hence the first few terms of $y_2$ are:
         \[ y_2(x) = \ln(x)y_1(x) + \left[ \frac{1}{4}x^2 - \frac{3}{128}x^4 + \cdots \right], \quad x>0 \]
 
@@ -1257,6 +1278,8 @@ We illustrate how this second solution is found via the following example.
         
 
 \end{tcolorbox}
+
+\pagebreak
 
 \section{Inhomogeneous Equations}
 
@@ -1356,7 +1379,7 @@ The derivative of (ii) gives
 From equations (i) and (iii), we have
 \[ U''+V' = (za)'' + zc \quad \text{(v)} \]
 Hence
-\begin{equation}
+\begin{equation}\label{eq:adjointOfOperator}
     \bar{L}[z] = \frac{d^2}{dx^2}(za) - \frac{d}{dx} (zb) + zc
 \end{equation}
 is the \colorboxed{orange}{\text{adjoint}} of $L[y] = ay''+by' + cy$.
@@ -1395,6 +1418,11 @@ The adjoint equation is easier to solve. Once $z(x)$ is found we have expression
         Solving $\bar{L}[z] = 0$ to find $z(x)$ can be done by looking for solutions of the form $z(x) = e^{mx}$ which gives the auxiliary equation
         \[ m^2 + 4 = 0. \]
         Hence $m = \pm 2i$. Since we only need one solution for $z(x)$ and not the general solution it sufficies to take $z(x)=\sin(2x)$.
+        
+    \end{sol}
+\end{tcolorbox}
+\begin{tcolorbox}
+    
 
         From here, $U=z=\sin(2x)$ and $V=-U'=-2\cos(2x)$. Hence the orginal ODE can be expressed as:
         \[ \frac{d}{dx}\left( \sin(2x)\frac{dy}{dx} -2\cos(2x)y \right) = x^2\sin(2x). \]
@@ -1408,7 +1436,6 @@ The adjoint equation is easier to solve. Once $z(x)$ is found we have expression
         Then $y(x) = \sin(2x) \int \left( \text{cosec}^2(2x)\int x^2 \sin(2x) dx \right) dx$ which yields:
 
         \[ y(x) = c_1 \sin(2x) + c_2 \cos(2x) - \frac{1}{8} + \frac{1}{4}x^2. \]
-    \end{sol}
 \end{tcolorbox}
 
 \begin{tcolorbox}
@@ -1417,10 +1444,238 @@ The adjoint equation is easier to solve. Once $z(x)$ is found we have expression
         \[ L[y] = (x^2 - x)y'' + (2x^2 + 4x - 3)y' + 8xy = 1 \]
         and use this to find the general solution.
     \end{exmp}
+    \begin{sol}
+        Multiply the ODE by $z(X)$:
+        \[(x^2-x)zy'' + (2x^2-4x-4)zy' + 8xzy = z.\]
+        We seek to express the LHS in exact form, that is:
+        \begin{align*}
+            (x^2-x)zy''+(2x^2+4x-3)zy' + 8xzy &= \left( Uy' + Vy\right)' \\
+            &= Uy'' + (U'+V)y' + V'y,
+        \end{align*}
+        where $z(x)$ is the integrating factor.
+        Equating coeffecients of $y'', y' $ and $y$ gives:
+        \[ \begin{matrix}
+            U=(x^2-x)z & \quad (\text{i}) \\
+            U + V = ( 2x^2 + 4x - 3)z & \quad (\text{ii}) \\
+            V' = 8xz & \quad (\text{iii}) \\
+        \end{matrix} \]
+        From differentiating (ii) we have
+        \[ U'' + V' = z'(2x^2 + 4x - 3) + z(4x+4) \quad \text{(iv)} \]
+        Then from (i) and (iii) we have
+        \[ U''+V' = z'(x^2-x) + 2z'(2x-1)+2z+8zx. \quad \text{(v)} \]
+        So (v) minus (iv) gives
+        \[ z''(x^2-x)-z'(2x^2-1) + z(4x-2) = 0. \]
+        Thus $\bar{L} = (x^2-x)\frac{d^2}{dx^2} - (2x^2-1)\frac{d}{dx} + (4x-2) $ is the adjoint operator.
+
+
+        We can solve $\bar{L}[z] = 0$ to find $z(x)$. Since the ODE is similar to those of Chapter 2 and since we only need one solution rather than a general solution to $\bar{L}[z] = 0$ we try $z(x)=x^r$.
+
+    \end{sol}
+\end{tcolorbox}
+\begin{tcolorbox}
+    
+
+        Thus $\bar{L}[z] = 0$ gives:
+        \[ (x^2-x)r(r-1)x^{r-2} - rx^{r-1}(2x^2-1)+x^r(4x-2) = 0. \]
+        Equating coefficients of powers of $x$ we have:
+        \begin{align*}
+            x^r&: \quad r(r-1)-2=0 \\
+            x^{r-1}&: \quad r(r-1)+r=0 \\
+            x^{r+1}&: \quad 4-2r = 0. \\
+        \end{align*}
+        So $r=2$ satisfies all three of these equations so $x^2$ is a solution to $\bar{L}[z] = 0$. (Check this).
+
+        So
+        \begin{align*}
+            U &= z(x^2-x) = x^4 - x^3 \\
+            V &= U' + z(2x^2+4x-3) = 2x^4. \\
+        \end{align*}
+        Hence $(Uy' + Vy)' = z(x)$ yields
+        \[ \left[ (x^4-x^3)y' + 2x^4y \right]' = x^2 \]
+        Integrating with respect to $x$ gives: $(x^4-x^3)y' +2x^4y=\frac{x^3}{3}+c$.
+        This is a first order linear ODE we can solve using integrating factors, $\mu(x) = e^{2x}(x-1)^2$. Then the ODE becomes:
+        \[ ye^{2x}(x-1)^2 = \frac{1}{3} \int (x-1)e^{2x}dx + c_1 \int \frac{e^{2x}(x-1)}{x^3} dx + c_2. \]
+        Thus the general solution to the original ODE is:
+        \[ y(x) = \frac{1}{(x-1)^2} \left( \frac{x}{6}+\frac{1}{4}+\frac{c_1}{x^2} + c_2e^{-2x} \right). \]
+
+
 \end{tcolorbox}
 
 \subsection{Self-adjoint Operators}
 
+\begin{definition}
+    A linear operator $L$ is \textit{self-adjoint} if $L=\bar{L}$, where $\bar{L}$ is the adjoint of $L$.
+\end{definition}
+
+\begin{tcolorbox}
+    \begin{exmp}[Legendre's equation]
+        Let $L=(1-x^2)\frac{d^2}{dx^2} - 2x\frac{d}{dx} + \lambda $ be a linear operator. Show the operator is self-adjoint.
+    \end{exmp}
+    \begin{sol}
+        $L[y] = (1-x^2)\frac{d^2y}{dx^2} - 2x\frac{dy}{dx} + \lambda y$, so multiplying this by $z(x)$ gives
+        \begin{align*}
+            (1-x^2)zy'' -2xzy' + \lambda z y &= \left( Uy' + Vy\right)' \\
+            &= Uy'' + (U'+V)y' + V'y,
+        \end{align*}
+        Hence
+        \[ \begin{matrix}
+            U=(1-x^2)z & \quad (\text{i}) \\
+            U + V = -2xz & \quad (\text{ii}) \\
+            V' = \lambda z  & \quad (\text{iii}) \\
+        \end{matrix} \]
+        So differentiating (ii) gives:
+        \[ U''+V' = -2z-2xz' \quad \text{(iv)}\]
+        From (i) and (iii) we have
+        \[ U'' + V' = z''(1-x^2) - z'4x-1z + \lambda z \quad \text{(v)}. \]
+    \end{sol}
+\end{tcolorbox}
+\begin{tcolorbox}
+        Thus (v) minus (iv) gives
+        \[ z''(1-x^2) - z'(2x) + \lambda z = 0\]
+        Hence $\bar{L} = (1-x^2)\frac{d^2}{dx^2} -2x \frac{d}{dx} + \lambda $ is the adjoint operator and we see $L=\bar{L}$ so $L$ is self-adjoint.
+\end{tcolorbox}
+
+Not every equation can be made exact, but they can be written in self-adjoint form. Self adjoint operators have useful properties which help to solve boundary value problems (Chapter 4). The self adjoint form of an equation can be put in canonical form which is generally easier to solve.
+
+\begin{thm}
+    A necessary condition for the operator
+    \[ L = a(x) \frac{d^2}{dx} + b(x) \frac{d}{dx} + c(x) \]
+    to be self adjoint is that $a'(x) = b(x)$. The self adjoint operator can be written in the general form
+    \[ L = \frac{d}{dx} \left[ a(x) \frac{d}{dx} \right] + c(x) .\]
+\end{thm}
+\begin{proof}
+    By equation \eqref{eq:adjointOfOperator}, $\bar{L}[y] = \frac{d^2}{dx^2} (ay) - \frac{d}{dx}(by) + (cy)$, so on expanding we have:
+    \[ \bar{L}[y] = ay'' + (2a'-b)y' + (a''-b'+c)y.\]
+    $\bar{L}=L$ if the following are satisfied
+    \begin{align*}
+        2a'-b = b &\implies a' = b \\
+        a'' - b' + c = c &\implies a'' = b' \\
+    \end{align*}
+    Hence $L$ is self adjoint if $a'=b$. If $L$ is self adjoint it can be written as:
+    \[ L[y] = ay'' + a'y + cy = \frac{d}{dx} \left( a\frac{dy}{dx} \right) + cy. \]
+\end{proof}
+
+\begin{thm}\label{thm:writeOperatorSelfAdjoin}
+    Any linear operator may be written in self adjoint form. Given $L[y] = a(x)y'' + b(x)y' + c(x)y = f(x)$, the self adjoint form is 
+    \[\hat{L}[y] = \frac{d}{dx}\left(P(x) \frac{dy}{dx} \right) + Q(x)y = H(x)\]
+    where $P(x) = \exp\left(\int \frac{a(x)}{b(x)} dx \right), Q(x) = P(x)\frac{c(x)}{a(x)}, H(x)=P(x)\frac{f(x)}{a(x)}.$
+\end{thm}
+
+\begin{proof}
+    Given $a(x)y'' + b(x)y' + c(x)y = f(x)$, dividing by $a(x)$ gives
+    \[ y'' + \frac{b}{a} y' + \frac{c}{a}y = \frac{f}{a}. \]
+    Multiplying the above equation by
+    \[ P(x) = \exp\left(\int \frac{b}{a} dx \right) \]
+
+    (Note: $y'' + \frac{b}{a}y' = Y' + \frac{b}{a}Y$, $P(x)$ is ``like'' an integrating factor for this ODE in $Y$).
+
+    The ODE is then
+    \[ \frac{d}{dx} \left(P(x)\frac{dy}{dx} \right) + P(x)\frac{c(x)}{a(x)}y  = \frac{f(x)}{a(x)}P(x).\]
+    Letting $Q(x) = P(x)\frac{c(x)}{a(x)}$ and $H(x)=\frac{f(x)}{a(x)}P(x)$ we arrive at the desired form.
+\end{proof}
+
+\begin{tcolorbox}
+    \begin{exmp}
+        Put the differential equation $y^y - xy' -2x=0$ in self adjoint form.
+    \end{exmp}
+    \begin{sol}
+        Let $P(x) = \exp\left(-\int x dx\right) = \exp(-\frac{x^2}{2}).$ Then
+        \[ \frac{d}{dx}\left( \frac{dy}{dx} \exp\left(\frac{-x^2}{2}\right) \right) - 2y\exp\left(\frac{-x^2}{2}\right) = 0\]
+        is the self-adjoint form.
+    \end{sol}
+\end{tcolorbox}
+
+\subsection{Canonical Form}
+
+\begin{thm}
+    Any linear ODE, $L[y]=f$ can be written in canonical form:
+    \[ \frac{d^2y}{dt^2} + \tilde{Q}(t)y = \tilde{H}(t). \]
+\end{thm}
+
+\begin{proof}
+    Given $a(x)y'' + b(x)y' + c(x)y = f(x)$ then by Theorem \ref{thm:writeOperatorSelfAdjoin} we can put the equation in self adjoint form
+    \begin{equation}\label{eq:canonicalformproofeq}
+        \frac{d}{dx}\left[ P(x)\frac{dy}{dx} \right] + Q(x)y = H(x).
+    \end{equation}
+    We want to change variables so that $P(x)\frac{dy}{dx} = \frac{dy}{dt}$. By the chain rule $\frac{dy}{dt} = \frac{dy}{dx}\frac{dx}{dt}$, so $P(x) = \frac{dx}{dt}$. Hence $\int \frac{1}{P(x)} dx = t$ is the change of variables we are seeking.
+
+    Multiplying equation \eqref{eq:canonicalformproofeq} by $P(x)$ and changing variables from $x$ to $t$ gives:
+    \[ P\frac{d}{dx}\left[ P \frac{dy}{dx} \right] + PQy = Ph\]
+    i.e. 
+    \[\frac{d}{dt}\left[ \frac{dy}{dx} \right] + \tilde{Q}(t)y = \tilde{H}(t) \]
+    where $\tilde{Q}(t) = P(x(t))Q(x(t)) $ and $\tilde{H}(t) = P(x(t))H(x(t))$ with $x(t)$ determined by $t=\int \frac{1}{P(x)} dx$.
+\end{proof}
+
+\begin{tcolorbox}
+    \begin{exmp}
+        Put Bessel's equation $x^2y'' + xy' + (x^2-p^2)y = 0$ into
+        \begin{enumerate}[(a)]
+            \item self adjoint form,
+            \item canonical form.
+        \end{enumerate}
+    \end{exmp}
+    \begin{sol}
+        Divide the ODE by $x^2$: $y'' + \frac{1}{x}y' + \frac{(x^2-p^2)}{x^2}y = 0$.
+
+        Multiplying by the factor $P(x) = \exp\left(\int\frac{1}{x} dx \right) = x$ gives:
+        \begin{equation}\tag{\text{Self Adjoint Form}}
+            \frac{d}{dx}\left(x \frac{dy}{dx} \right) + \frac{(x^2-p^2)}{x}y = 0
+        \end{equation}
+
+        Let $x\frac{dy}{dx} = \frac{dy}{dt}$, so comparing to $\frac{dy}{dt} = \frac{dy}{dx} \frac{dx}{dt}$ we have $\frac{dx}{dt} = x$, hence $t=\ln x$ or $x = \exp(t)$.
+        Multiplying the self adjoint form by $P(x) = x$ gives:
+        \[ x\frac{d}{dx}\left[ x \frac{dy}{dx} \right] + (x^2-p^2)y = 0 \]
+        and changing variables from $x$ to $t$
+        \begin{equation}\tag{\text{Canonical Form}}
+            \frac{d^2y}{dt^2} + (e^{2t}-p^2)y = 0.
+        \end{equation}
+    \end{sol}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{exmp}[Notice this is the same as Ex Sheet 4, Q6]
+        Put the equation
+        \[ 4xy'' + 2y' = 0 \]
+        into canonical form, then solve the equation.
+    \end{exmp}
+    \begin{sol}
+        Dividing the ODE by $4x$ gives $y'' + \frac{1}{2x}y' + \frac{1}{4x}y = 0$.
+        Multiplying the ODE by $P(x)=\exp\left(\int \frac{1}{2x} dx \right) = x^{\frac{1}{2}}$.
+        \begin{equation}\tag{\text{Self Adjoint Form}}
+            \frac{d}{dx} \left( x^{\frac{1}{2}} \frac{dy}{dx} \right) + \frac{x^{\frac{1}{2}}}{4x} y = 0.
+        \end{equation}
+        Multiplying by $P(x)$ again
+        \[ x^{\frac{1}{2}} \frac{d}{dx}\left( x^{\frac{1}{2}} \frac{dy}{dx} \right) + \frac{1}{4}y = 0. \]
+
+        Changing variables so that $x^{\frac{1}{2}}\frac{dy}{dx} =\frac{dy}{dt}$ hence $\frac{dx}{dt} = x^{\frac{1}{2}}$. So $t = \int x^{\frac{-1}{2}} dx = 2x^{\frac{1}{2}}$. Thus $\frac{d^2y}{dt^2} + \frac{1}{4}y = 0$ which is a constant coefficient ODE with solutions of the form $e^{mt}$. This leades to the auxiliary equation $m^2 + \frac{1}{4} = 0$, so $m = \pm \frac{i}{2} $.
+
+        The general solution is then $y(t) = c_1\sin\left(\frac{t}{2}\right) + c_2\cos\left(\frac{t}{2}\right).$
+
+        Rewriting in the original $x$ variable we have:
+        \[ y(x) = c_1\sin(\sqrt{x}) + c_2\cos(\sqrt{x}). \]
+    \end{sol}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{exmp}
+        Solve the differential equation $4(1-x^2)y'' - 4xy' + y = 0$ using a canonical substitution.
+    \end{exmp}
+    \begin{sol}
+        Let $P(x) = \exp\left(-\int\frac{x}{1-x^2} dx\right) = \exp\left( \frac{1}{2} \int \frac{-2x}{1-x^2} dx \right) = (1-x^2)^{\frac{1}{2}}$.
+        So multiplying the ODE by $P(x)$ gives the self adjoint formm of the ODE as:\
+        \begin{equation}\label{eq:aSelfAdjointExample}
+            \frac{d}{dx}\left( \sqrt{1-x^2} \frac{dy}{dx} \right) = \frac{1}{\sqrt{1-x^2}}\frac{y}{4} = 0.
+        \end{equation}
+        To write this in canoncial form let $\sqrt{1-x^2}\frac{dy}{dx} = \frac{dy}{dt}$, that is $\frac{dx}{dt} = \sqrt{1-x^2}$ and so $t=\int \frac{dx}{\sqrt{1-x^2}} = \sin^{-1}(x)$ or $\sin(t) = x$. Hence equation \eqref{eq:aSelfAdjointExample} becomes:
+        \[\frac{d^2y}{dt^2} + \frac{1}{4}y = 0.\]
+        This has solution $y(t) = c_1\sin\left(\frac{t}{2}\right) + c_2 \cos \left( \frac{t}{2} \right), \quad c_1,c_2 \in \mathbb{R}$.
+
+        In the original $x$ coordinate the solution is
+        \[ y(x) = c_1\sin \left(\frac{1}{2} \sin^{-1}(x) \right) + c_2 \cos\left(\frac{1}{2}\sin^{-1}(x)\right). \]
+    \end{sol}
+\end{tcolorbox}
+
+\pagebreak
 \section{Boundary Value Problems and Sturm-Liouville Theory}
 
 \subsection{Inner Product Spaces}
