@@ -15,6 +15,7 @@
 
 \usepackage{mathtools}
 \usepackage{centernot}
+\usepackage{mathrsfs}
 
 \usepackage[shortlabels]{enumitem}
 
@@ -25,6 +26,7 @@
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{conj}[thm]{Conjecture}
+\newtheorem*{remark}{Remark}
 
 \theoremstyle{definition}
 \newtheorem{definition}[thm]{Definition}
@@ -1677,6 +1679,45 @@ Not every equation can be made exact, but they can be written in self-adjoint fo
 
 \pagebreak
 \section{Boundary Value Problems and Sturm-Liouville Theory}
+
+Boundary value problems (BVPs) for differential equations have boundary conditions specified at two different points $x=a$ and $x=b$ in contrast to initial value problems (IVPs) where the conditions are specified at some point $x=a$. As a result solutions to BVPs have very different properties to solutions to IVPS. See Figure \ref{fig:IVPvsBVP}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/IVPvsBVP.png}
+    \caption{An IVP versus a BVP.}
+    \label{fig:IVPvsBVP}
+\end{figure}
+
+\begin{definition}
+    A two point boundary value problem is given by the second order ODE
+    \[ L[y] = a(x)y'' + b(x)y' + c(x)y = f(x) \]
+    subject to the unmixed homogenenous boundary condition:
+    \begin{align*}
+        \alpha_1 y(a) + \alpha_2 y'(a) &= 0 \\
+        \beta_1 y(b) + \beta_2 y'(b) &= 0 \\
+    \end{align*}
+    $\alpha_i,\beta_i \in \mathbb{R}$ and $a,b,c,f,y \in C[a,b]$.
+\end{definition}
+
+\begin{remark}
+    $C[a,b]$ is the set of all continuous functions $y: [a,b] \to \mathbb{R}$ and forms a vector space.
+    $C^2[a,b]$ refers to the functions also being twice differentiable.
+\end{remark}
+
+\begin{itemize}
+\item For $\alpha_1=\beta_1=0$ we have \colorboxed{orange}{\text{Neumann boundary conditions}} such that $y'(a)=y'(b)=0$.
+
+\item For $\alpha_2=\beta_2=0$ we have \colorboxed{orange}{\text{Dirichlet boundary conditions}} such that $y(a)=y(b)=0$.
+
+\item Another type of boundary condition which is often encountered is \colorboxed{orange}{\text{periodic boundary conditions}} where $y(a)=y(b)$ and $y'(a)=y'(b)$. Boundary value problems with periodic boundary conditions have to be handled differently than the above homogenenous conditions.
+\end{itemize}
+
+We can solve some BVPs using eigenvalue expansions.
+
+\begin{definition}
+    The \textit{eigenvalue} $\lambda$ and \textit{eigenfunctions} $\Phi$
+\end{definition}
 
 \subsection{Inner Product Spaces}
 
