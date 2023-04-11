@@ -1132,7 +1132,7 @@ To determine a solution of \eqref{eq:dividedHomogeneous} we need to know
         \]
         Substituting these into the ODE gives:
         \[
-            \sum_{n=0}{\infty} \left[ 2x^2a_n(n+r)(n+r-1)x^{n+r-2} -xa_n(n+r)x^{n+r-1} + (1+x)a_nx^{n+r} \right] = 0.  
+            \sum_{n=0}^{\infty} \left[ 2x^2a_n(n+r)(n+r-1)x^{n+r-2} -xa_n(n+r)x^{n+r-1} + (1+x)a_nx^{n+r} \right] = 0.  
         \]
         To find an equaiont defining $r$ we consider the coefficient of the lowest power of $x$ ($x^r$) which gives:
         \[a_02r(r-1)-a_0r+a_0 = 0, \qquad \text{where } a_0\neq0\].
@@ -1249,11 +1249,11 @@ We illustrate how this second solution is found via the following example.
         \[
             L\left[\frac{\partial y}{\partial r}\right] = 2a_0rx^r + a_0r^2x^r\ln x
         \]
-        Observer $L\left[ \frac{\partial y}{\partial r} \Big \vert_{r=0} \right] = 0$ so $\frac{\partial y}{\partial r} \Big \vert_{r=0}$ is a solution to the ODE $L[y]=0$. This is the second solution we were looking for.
+        Observe $L\left[ \frac{\partial y}{\partial r} \Big \vert_{r=0} \right] = 0$ so $\frac{\partial y}{\partial r} \Big \vert_{r=0}$ is a solution to the ODE $L[y]=0$. This is the second solution we were looking for.
         \[ y_2(x) = \frac{\partial y}{\partial r} \Big \vert_{r=0} = \frac{\partial }{\partial r} \left[ \sum_{n=0}^{\infty} a_n(r)x^{n+r} \right] \Bigg \vert_{r=0} \]
 
         Using the product rule
-        \[ \frac{\partial y}{\partial r} \Big \vert_{r=0} = \frac{\partial }{\partial r} \left[ x^r \ln x \left( \sum_{n=0}^{\infty} a_n(r)x^n \right)+ x^r \sum_{n=1}^{\infty} \frac{\partial a_n(r)}{\partial r}x^{n} \right] \Bigg \vert_{r=0} \]
+        \[ \frac{\partial y}{\partial r} \Big \vert_{r=0} =  \left[ x^r \ln x \left( \sum_{n=0}^{\infty} a_n(r)x^n \right)+ x^r \sum_{n=1}^{\infty} \frac{\partial a_n(r)}{\partial r}x^{n} \right] \Bigg \vert_{r=0} \]
         Hence
         \[
             y_2(x) = \ln x y_1(x) + \left[ \sum_{n=1}^{\infty} \frac{\partial a_n(r)}{\partial r}\Big \vert_{r=0} x^{n} \right].
@@ -1309,12 +1309,12 @@ The general second order ODE
 \end{equation}
 can be writen as
 \begin{equation}\label{eq:exactRewrite}
-    \big( a(x)y'' - a'(x)y\big)' + \big(b(x)y\big)' + \big(a''(x) - b'(x) + c(x)\big)y = f(x)
+    \big( a(x)y' - a'(x)y\big)' + \big(b(x)y\big)' + \big(a''(x) - b'(x) + c(x)\big)y = f(x)
 \end{equation}
 We check by exapanding (3.2):
-\[ a'y'+ay'' - a''y + by' + b'y + a''y - b'y + cy = f  \implies ay'' + by' + cy = f \text{ as required.}\]
+\[ a'y'+ay'' - a''y - a'y' + by' + b'y + a''y - b'y + cy = f  \implies ay'' + by' + cy = f \text{ as required.}\]
 
-The differential equation is exact is
+The differential equation is exact if
 \begin{equation}\label{eq:exactSuffCrit}
     a''-b'+c = 0
 \end{equation}
@@ -1377,7 +1377,7 @@ Comparing coefficients of $y'', y'$ and $y$ we obtain
 \end{matrix}    
 \]
 The derivative of (ii) gives
-\[U'' + v@ = (zb)' \quad \text{(iv)}\]
+\[U'' + V' = (zb)' \quad \text{(iv)}\]
 From equations (i) and (iii), we have
 \[ U''+V' = (za)'' + zc \quad \text{(v)} \]
 Hence
@@ -1582,7 +1582,7 @@ Not every equation can be made exact, but they can be written in self-adjoint fo
     \end{exmp}
     \begin{sol}
         Let $P(x) = \exp\left(-\int x dx\right) = \exp(-\frac{x^2}{2}).$ Then
-        \[ \frac{d}{dx}\left( \frac{dy}{dx} \exp\left(\frac{-x^2}{2}\right) \right) - 2y\exp\left(\frac{-x^2}{2}\right) = 0\]
+        \[ \frac{d}{dx}\left( \frac{dy}{dx} \exp\left(\frac{-x^2}{2}\right) \right) - 2x\exp\left(\frac{-x^2}{2}\right) = 0\]
         is the self-adjoint form.
     \end{sol}
 \end{tcolorbox}
